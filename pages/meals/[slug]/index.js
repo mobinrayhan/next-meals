@@ -2,6 +2,8 @@ import NotFoundPage from "@/components/not-found";
 import styles from "./index.module.css";
 import { getMeal, getMeals } from "@/lib/meals";
 import Image from "next/image";
+import Head from "next/head";
+import { notFound } from "next/navigation";
 
 export default function MealDetailPage({ meal: singleMeal, error }) {
   if (error) {
@@ -22,6 +24,10 @@ export default function MealDetailPage({ meal: singleMeal, error }) {
 
   return (
     <>
+      <Head>
+        <title>{meal.title}</title>
+        <meta name="description" content={meal.summary} />
+      </Head>
       <header className={styles.header}>
         <div className={styles.image}>
           <Image src={meal.image} alt={meal.title} fill />

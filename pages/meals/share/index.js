@@ -5,8 +5,8 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "@/firebase";
 import slugify from "slugify";
 import { useRouter } from "next/router";
-import ShareMealButton from "@/components/meals/share-meal-button";
 import ImagePicker from "@/components/meals/image-picker";
+import Head from "next/head";
 
 const validateEmail = (email) => {
   return String(email)
@@ -88,6 +88,13 @@ export default function MealsSharePage() {
 
   return (
     <>
+      <Head>
+        <title>Share Your Favorite Meal</title>
+        <meta
+          name="description"
+          content="Meal sharing page. for sharing meal"
+        />
+      </Head>
       <header className={styles.header}>
         <h1>
           Share your <span className={styles.highlight}>favorite meal</span>

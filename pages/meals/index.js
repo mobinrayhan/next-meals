@@ -3,10 +3,15 @@ import { getMeals } from "@/lib/meals";
 import Link from "next/link";
 
 import styles from "./index.module.css";
+import Head from "next/head";
 
 export default function MealsPage({ meals }) {
   return (
     <>
+      <Head>
+        <title>A list of meal</title>
+        <meta name="description" content="A list of delicious food" />
+      </Head>
       <header className={styles.header}>
         <h1>
           Delicious meals, created{" "}
@@ -32,7 +37,7 @@ export async function getStaticProps() {
       meals: JSON.stringify(meals),
     },
 
-    revalidate: 60, // it is revalidate after 2
+    revalidate: 60, // it is revalidate after 1
   };
 }
 
